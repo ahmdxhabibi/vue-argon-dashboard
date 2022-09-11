@@ -7,6 +7,8 @@ import RTL from "../views/Rtl.vue";
 import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
 import Signin from "../views/Signin.vue";
+import Edit from "../views/Edit.vue";
+import Delete from "../views/Delete.vue";
 
 const routes = [
   {
@@ -54,7 +56,16 @@ const routes = [
     name: "Signup",
     component: Signup,
   },
-  
+  {
+    path: "/edit",
+    name: "Edit",
+    component: Edit,
+  },
+  {
+    path: "/delete",
+    name: "Delete",
+    component: Delete,
+  },
 ];
 
 const router = createRouter({
