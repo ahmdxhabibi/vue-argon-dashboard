@@ -1,4 +1,84 @@
 <template>
+  <div class="card mx-4" id="top">
+    <div class="card-header pb-0">
+      <h2>CREATE USER</h2>
+    </div>
+    <div class="card-body px-3 pt-0 pb-2">
+      <div class="mb-3">
+        <label
+          for="Email"
+          class="form-label fs-5 text-uppercase font-weight-bolder opacity-7"
+          >Email</label
+        >
+        <input type="email" class="form-control" id="Email" v-model="email" />
+      </div>
+
+      <div class="mb-3">
+        <label
+          for="FirstName"
+          class="form-label fs-5 text-uppercase font-weight-bolder opacity-7"
+          >First Name</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          v-model="firstname"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label
+          for="LastName"
+          class="form-label fs-5 text-uppercase font-weight-bolder opacity-7"
+          >Last Name</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          v-model="lastname"
+        />
+      </div>
+      <button @click="post()" class="btn btn-primary">Create</button>
+      <div id="email"></div>
+      <div id="first_name"></div>
+      <div id="last_name"></div>
+    </div>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      email: "",
+      name: "",
+      errors: [],
+    };
+  },
+  methods: {
+    post() {
+      axios
+        .post("https://reqres.in/api/users", {
+          email: this.email,
+          name: this.firstName,
+        })
+        .then((response) => {})
+        .catch((e) => {
+          this.errors.push(e);
+        });
+      document.getElementById("email").innerHTML =
+        '<div class="fs-4">Email : ' + this.email + "</div>";
+      document.getElementById("name").innerHTML =
+        '<div class="fs-4">Nama : ' + this.name + "</div>";
+    },
+  },
+};
+</script>
+
+<!-- <template>
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-8">
@@ -81,4 +161,4 @@ export default {
     };
   },
 };
-</script>
+</script> -->
