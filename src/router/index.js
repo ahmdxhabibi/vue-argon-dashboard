@@ -7,6 +7,8 @@ import RTL from "../views/Rtl.vue";
 import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
 import Signin from "../views/Signin.vue";
+import Create from "../views/Create.vue";
+import View from "../views/View.vue";
 import Edit from "../views/Edit.vue";
 import Delete from "../views/Delete.vue";
 
@@ -55,6 +57,16 @@ const routes = [
     path: "/signup",
     name: "Signup",
     component: Signup,
+  },
+  {
+    path: "/create",
+    name: "Create",
+    component: Create,
+  },
+  {
+    path: "/view",
+    name: "View",
+    component: View,
   },
   {
     path: "/edit",
